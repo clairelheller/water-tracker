@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="manifest" href="{{ url_for('static', filename='manifest.json') }}">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Water Tracker</title>
@@ -91,6 +92,9 @@
                 document.getElementById('waterAmount').value = "";
             });
         });
+        if ("serviceWorker" in navigator) {
+            navigator.serviceWorker.register("/static/sw.js");
+            }
     </script>
 </body>
 </html>
